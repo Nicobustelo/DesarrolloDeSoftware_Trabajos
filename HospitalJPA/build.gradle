@@ -1,0 +1,46 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+application {
+    mainClass = 'org.jcr.Main'
+}
+
+group = 'org.jcr'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+// JPA API
+    implementation 'jakarta.persistence:jakarta.persistence-api:3.1.0'
+    // Implementación JPA (Hibernate)
+    implementation 'org.hibernate.orm:hibernate-core:6.4.4.Final'
+
+    // Base de datos en memoria H2 (runtime)
+    runtimeOnly 'com.h2database:h2:2.2.224'
+
+    // Lombok
+    implementation 'org.projectlombok:lombok:1.18.32'
+    annotationProcessor 'org.projectlombok:lombok:1.18.32'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.32'
+
+    // Logger (opcional)
+    implementation 'org.slf4j:slf4j-simple:2.0.13'
+
+    // Tests
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+    //Validacion
+    implementation "org.hibernate.validator:hibernate-validator:8.0.1.Final"
+    implementation "jakarta.validation:jakarta.validation-api:3.0.2"
+}
+
+test {
+    useJUnitPlatform()
+}

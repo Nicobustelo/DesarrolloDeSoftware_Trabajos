@@ -1,0 +1,16 @@
+package org.jcr.entidades;
+import lombok.*;
+
+@Getter
+
+public class CitaException extends Exception {
+
+    public CitaException(String message) {
+        super(message);
+    }
+
+    public CitaException(String message, Throwable cause) {
+        super(message, cause);
+    }
+}
+
